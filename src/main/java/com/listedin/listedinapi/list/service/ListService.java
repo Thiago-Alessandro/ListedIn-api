@@ -11,7 +11,6 @@ import java.util.Collection;
 @AllArgsConstructor
 public class ListService {
 
-
     private final ListRepository listRepository;
 
     public List findById(Long id) {
