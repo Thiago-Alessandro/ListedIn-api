@@ -19,7 +19,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/{id}")
-    public Product findById(Long id) {
+    public Product findById(@PathVariable Long id) {
         return productService.findById(id);
     }
 
@@ -29,17 +29,17 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product create(Product product) {
+    public Product create(@RequestBody Product product) {
         return productService.create(product);
     }
 
     @PutMapping
-    public Product update(Product product) {
+    public Product update(@RequestBody Product product) {
         return productService.update(product);
     }
 
-    @DeleteMapping
-    public void delete(Long id) {
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
         productService.delete(id);
     }
 

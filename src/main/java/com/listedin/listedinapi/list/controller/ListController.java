@@ -17,7 +17,7 @@ public class ListController {
     private final ListService listService;
 
     @GetMapping("/{id}")
-    public List findById(Long id) {
+    public List findById(@PathVariable Long id) {
         return listService.findById(id);
     }
 
@@ -27,17 +27,17 @@ public class ListController {
     }
 
     @PostMapping
-    public List create(List list) {
+    public List create(@RequestBody List list) {
         return listService.create(list);
     }
 
     @PutMapping
-    public List update(List list) {
+    public List update(@RequestBody List list) {
         return listService.update(list);
     }
 
-    @DeleteMapping
-    public void delete(Long id) {
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
         listService.delete(id);
     }
 
